@@ -2,6 +2,18 @@
 
 AI 100 Midterm Project — Deep learning classification of handwritten digits using a Convolutional Neural Network (CNN) implemented in PyTorch on the MNIST dataset.
 
+## Quick Start
+
+```bash
+git clone https://github.com/kreeshpatel/ai100-mnist-cnn-classification.git
+cd ai100-mnist-cnn-classification
+pip install -r requirements.txt
+python src/sanity_check.py        # verify environment
+python src/train.py               # train the model (~5 min on CPU)
+```
+
+Results are saved to the `outputs/` folder: `metrics.json`, `loss_curve.png`, `acc_curve.png`, and `confusion_matrix.png`.
+
 ## Project Overview
 
 This project trains a CNN to classify 28x28 grayscale images of handwritten digits (0–9) from the MNIST dataset. The model achieves high accuracy using a simple two-layer convolutional architecture followed by fully connected layers.
