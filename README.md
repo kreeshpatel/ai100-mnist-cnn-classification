@@ -63,6 +63,24 @@ After training completes, all results are saved to the `outputs/` folder:
 | `acc_curve.png`         | Training accuracy over epochs        |
 | `confusion_matrix.png`  | Confusion matrix on the test set     |
 
+## Sanity Check
+
+Before training, run the sanity check to verify your environment is set up correctly:
+
+```bash
+python src/sanity_check.py
+```
+
+The script tests every dependency, loads the model, downloads MNIST, runs a forward pass, and trains for 20 batches on CPU. A successful run ends with:
+
+```
+============================================================
+  ALL CHECKS PASSED — your environment is ready!
+============================================================
+```
+
+If PyTorch fails to import (common on Windows with the `DLL load failed` error), the script prints a step-by-step fix checklist covering the VC++ x64 runtime, 64-bit Python, and CPU wheel reinstallation.
+
 ## Project Structure
 
 ```
@@ -72,7 +90,8 @@ ai100-mnist-cnn-classification/
 ├── src/
 │   ├── model.py              # CNN model definition
 │   ├── train.py              # Training and evaluation script
-│   └── utils.py              # Helper functions for metrics and plots
+│   ├── utils.py              # Helper functions for metrics and plots
+│   └── sanity_check.py       # Environment and model sanity check
 └── outputs/
     └── .gitkeep              # Placeholder (outputs saved here after training)
 ```
