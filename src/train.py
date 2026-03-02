@@ -3,7 +3,7 @@ Training script for the MNIST CNN classifier.
 
 Usage:
     python src/train.py
-    python src/train.py --epochs 10 --batch_size 128 --lr 0.0005 --seed 42
+    python src/train.py --epochs 5 --batch_size 128 --lr 0.0005 --seed 42
 """
 
 import argparse
@@ -21,8 +21,8 @@ from utils import compute_accuracy, plot_loss_curve, plot_accuracy_curve, plot_c
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Train a CNN on MNIST")
-    parser.add_argument("--epochs", type=int, default=5, help="Number of training epochs")
-    parser.add_argument("--batch_size", type=int, default=64, help="Batch size for training and testing")
+    parser.add_argument("--epochs", type=int, default=3, help="Number of training epochs")
+    parser.add_argument("--batch_size", type=int, default=256, help="Batch size for training and testing")
     parser.add_argument("--lr", type=float, default=0.001, help="Learning rate for Adam optimizer")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
     return parser.parse_args()
@@ -49,8 +49,8 @@ def get_data_loaders(batch_size):
         root="data", train=False, download=True, transform=transform
     )
 
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
 
     return train_loader, test_loader
 
