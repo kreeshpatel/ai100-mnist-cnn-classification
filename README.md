@@ -18,7 +18,6 @@ ai100-mnist-cnn-classification/
 │   ├── train.py           # Training and evaluation script
 │   ├── utils.py           # Metrics and plotting utilities
 │   └── sanity_check.py    # Environment and dependency checker
-├── generate_report.py     # Generates the PDF midterm report
 ├── outputs/               # Training artifacts (plots, metrics, report)
 ├── data/                  # MNIST dataset (auto-downloaded)
 ├── requirements.txt
@@ -82,15 +81,6 @@ Training outputs are saved to `outputs/`:
 - `loss_curve.png` -- training loss over epochs
 - `acc_curve.png` -- training accuracy over epochs
 - `confusion_matrix.png` -- 10x10 confusion matrix on the test set
-
-### 3. Generate the PDF report
-
-```bash
-pip install fpdf2
-python generate_report.py
-```
-
-Produces `outputs/AI100_Midterm_Report.pdf`.
 
 ## Model Architecture
 
